@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct Coffee {
     //Class 148
     price: f64,
@@ -5,18 +6,15 @@ struct Coffee {
     is_hot: bool,
 }
 fn main() {
-    //Class 151
+    //Class 152
     let mut mocha = Coffee {
         name: String::from("Mocha"),
         price: 4.99,
         is_hot: true,
     };
-
-    drink_coffee(&mut mocha);
+    println!("{:?}", mocha); //{:?} é o mesmo que {:#?} mas sem o espaçamento
+    println!("{:#?}", mocha);
 }
-
-//   println!("{}", caramel_macchiato.name);
-//   println!("{}", mocha.name); // mesma saída da linha anterior
 
 fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
     Coffee {
@@ -26,7 +24,8 @@ fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
     }
 }
 
-fn drink_coffee(coffee: &mut Coffee) { //Podemos mudar o valor de coffee
+fn drink_coffee(coffee: &mut Coffee) {
+    //Podemos mudar o valor de coffee
     // não é necessário (*coffee).name
     println!("Drinking my delicious {}", coffee.name);
 }
