@@ -1,28 +1,47 @@
-fn main() {
-    	//Class 147
-	struct Coffee {
-		price: f64,
-		name: String,
-		is_hot: bool,
-		};
-		
-let mut beverage = Coffee {
-	name: String::from("mocha"),
-	price: 4.99,
-	is_hot: false,
-	};
-	
-	beverage.name = String::from("Caramel Macchiato");
-	beverage.price = 6.99;
-	beverage.is_hot = true;
-	
-	println!(
-	"My {} this morning cost {}. It is {} that it was hot", 
-		beverage.name, beverage.price, beverage.is_hot
-		);
-	
+struct Coffee {
+    price: f64,
+    name: String,
+    is_hot: bool,
 }
-    /*//Class 146
+fn main() {
+    let coffee = make_coffee(String::from("Late"), 4.99, true);
+    println!(
+        "My {} this morning cost {}. It is {} that it was hot.",
+        coffee.name, coffee.price, coffee.is_hot
+    );
+}
+fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
+    Coffee {
+        name,
+        price,
+        is_hot,
+    }
+}
+
+/*
+        //Class 147
+    struct Coffee {
+        price: f64,
+        name: String,
+        is_hot: bool,
+        };
+
+let mut beverage = Coffee {
+    name: String::from("mocha"),
+    price: 4.99,
+    is_hot: false,
+    };
+
+    beverage.name = String::from("Caramel Macchiato");
+    beverage.price = 6.99;
+    beverage.is_hot = true;
+
+    println!(
+    "My {} this morning cost {}. It is {} that it was hot",
+        beverage.name, beverage.price, beverage.is_hot
+        );
+*/
+/*//Class 146
     struct Coffee {
         price: f64,
         name: String,
