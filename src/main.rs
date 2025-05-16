@@ -5,22 +5,18 @@ struct Coffee {
     is_hot: bool,
 }
 fn main() {
-    //Class 150
-    let mocha = Coffee {
+    //Class 151
+    let mut mocha = Coffee {
         name: String::from("Mocha"),
         price: 4.99,
         is_hot: true,
     };
 
-    let caramel_macchiato = Coffee {
-        name: mocha.name.clone(),
-        ..mocha
-    };
-
-    println!("{}", caramel_macchiato.name);
-    println!("{}", mocha.name); // mesma saída da linha anterior
-
+    drink_coffee(&mut mocha);
 }
+
+//   println!("{}", caramel_macchiato.name);
+//   println!("{}", mocha.name); // mesma saída da linha anterior
 
 fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
     Coffee {
@@ -28,6 +24,11 @@ fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
         price,
         is_hot,
     }
+}
+
+fn drink_coffee(coffee: &mut Coffee) { //Podemos mudar o valor de coffee
+    // não é necessário (*coffee).name
+    println!("Drinking my delicious {}", coffee.name);
 }
 /*
 fn main() { //Class 149
