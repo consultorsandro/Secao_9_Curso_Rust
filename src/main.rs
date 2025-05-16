@@ -1,8 +1,35 @@
-struct Coffee { //Class 148
+struct Coffee {
+    //Class 148
     price: f64,
     name: String,
     is_hot: bool,
 }
+fn main() {
+    //Class 150
+    let mocha = Coffee {
+        name: String::from("Mocha"),
+        price: 4.99,
+        is_hot: true,
+    };
+
+    let caramel_macchiato = Coffee {
+        name: mocha.name.clone(),
+        ..mocha
+    };
+
+    println!("{}", caramel_macchiato.name);
+    println!("{}", mocha.name); // mesma saída da linha anterior
+
+}
+
+fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
+    Coffee {
+        name,
+        price,
+        is_hot,
+    }
+}
+/*
 fn main() { //Class 149
     let name = String::from("Latte");
    let coffee = make_coffee(name, 4.99, true);
@@ -27,6 +54,7 @@ fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
         is_hot,
     }
 }
+*/
 /*
     //Class 148
     let coffee = make_coffee(String::from("Late"), 4.99, true);
