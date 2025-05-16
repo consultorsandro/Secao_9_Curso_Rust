@@ -1,14 +1,24 @@
-struct Coffee {
+struct Coffee { //Class 148
     price: f64,
     name: String,
     is_hot: bool,
 }
-fn main() {
-    let coffee = make_coffee(String::from("Late"), 4.99, true);
+fn main() { //Class 149
+    let name = String::from("Latte");
+   let coffee = make_coffee(name, 4.99, true);
     println!(
         "My {} this morning cost {}. It is {} that it was hot.",
         coffee.name, coffee.price, coffee.is_hot
     );
+    let name = String::from("Latte"); //Class 149
+    let price = 3.99;
+    let is_hot = false;
+    let latte = Coffee {
+        name: name.clone(),
+        price,
+        is_hot,
+    };
+
 }
 fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
     Coffee {
@@ -17,7 +27,24 @@ fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
         is_hot,
     }
 }
+/*
+    //Class 148
+    let coffee = make_coffee(String::from("Late"), 4.99, true);
+    println!(
+        "My {} this morning cost {}. It is {} that it was hot.",
+        coffee.name, coffee.price, coffee.is_hot
+    );
+}
+//Class 148 outside of main
+fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
+    Coffee {
+        name,
+        price,
+        is_hot,
+    }
+}
 
+*/
 /*
         //Class 147
     struct Coffee {
