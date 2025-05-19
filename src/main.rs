@@ -15,7 +15,13 @@ impl TaylorSwift {
         println!("Release Year: {}", self.release_year);
         println!("Duration: {} seconds ", self.duration_secs);
     }
+
+    fn double_length(mut self: Self) {
+        self.duration_secs = self.duration_secs * 2;
+        println!("{:#?}", self);
+    }
 }
+
 fn main() {
 
 let song = TaylorSwift {
@@ -23,9 +29,10 @@ let song = TaylorSwift {
     release_year: 2014,
     duration_secs: 231,
     };
-    song.display_song_info();
-
+   // song.display_song_info(); // class 153
+    song.double_length(); // class 154
 }
+
 /*
     //Class 152
     let mut mocha = Coffee {
