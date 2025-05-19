@@ -1,11 +1,32 @@
-#[derive(Debug)]
-struct Coffee {
-    //Class 148
-    price: f64,
-    name: String,
-    is_hot: bool,
+#[derive(Debug)] // Convertendo a struct para um formato legível/imprimir
+struct TaylorSwift {
+    title: String,
+    release_year: u32,
+    duration_secs: u32,
+}
+
+impl TaylorSwift {
+    // Immutable struct value (self parameter takes ownership)
+    // Mutable struct value (self parameter takes ownership, has permission to change)
+    // Immutable reference to struct instance (no ownership)
+    // Mutable reference to struct instance (no ownership, has permission to change)
+    fn display_song_info(self) {
+        println!("Title: {}", self.title);
+        println!("Release Year: {}", self.release_year);
+        println!("Duration: {} seconds ", self.duration_secs);
+    }
 }
 fn main() {
+
+let song = TaylorSwift {
+    title: String::from("Blank Space"),
+    release_year: 2014,
+    duration_secs: 231,
+    };
+    song.display_song_info();
+
+}
+/*
     //Class 152
     let mut mocha = Coffee {
         name: String::from("Mocha"),
@@ -14,8 +35,9 @@ fn main() {
     };
     println!("{:?}", mocha); //{:?} é o mesmo que {:#?} mas sem o espaçamento
     println!("{:#?}", mocha);
-}
-
+*/
+/*
+//Class 152 outside of main
 fn make_coffee(name: String, price: f64, is_hot: bool) -> Coffee {
     Coffee {
         name,
@@ -29,6 +51,8 @@ fn drink_coffee(coffee: &mut Coffee) {
     // não é necessário (*coffee).name
     println!("Drinking my delicious {}", coffee.name);
 }
+*/
+
 /*
 fn main() { //Class 149
     let name = String::from("Latte");
