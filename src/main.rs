@@ -12,7 +12,7 @@ impl TaylorSwift {
     // Mutable reference to struct instance (no ownership, has permission to change)
     fn display_song_info(&self) {
         println!("Title: {}", self.title);
-        println!("Release Year: {}", self.release_year);
+        println!("Year since release: {}", self.years_since_release());
         println!("Duration: {} seconds ", self.duration_secs);
     }
 
@@ -24,7 +24,10 @@ impl TaylorSwift {
     fn is_longer_than(&self, other: &Self) -> bool {
         self.duration_secs > other.duration_secs
     }
-    
+
+    fn years_since_release(&self) -> u32 {
+        2024 - self.release_year
+    }
 }
 
 fn main() {
@@ -50,6 +53,7 @@ fn main() {
         println!("{} is shoter than or equal to {}", blank_space.title, all_too_well.title);
     }
 
+    blank_space.display_song_info(); // class 157
 
     
 }
