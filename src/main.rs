@@ -10,7 +10,7 @@ impl TaylorSwift {
     // Mutable struct value (self parameter takes ownership, has permission to change)
     // Immutable reference to struct instance (no ownership)
     // Mutable reference to struct instance (no ownership, has permission to change)
-    fn display_song_info(self) {
+    fn display_song_info(&self) {
         println!("Title: {}", self.title);
         println!("Release Year: {}", self.release_year);
         println!("Duration: {} seconds ", self.duration_secs);
@@ -20,17 +20,38 @@ impl TaylorSwift {
         self.duration_secs = self.duration_secs * 2;
         println!("{:#?}", self);
     }
+    // Class 156
+    fn is_longer_than(&self, other: &Self) -> bool {
+        self.duration_secs > other.duration_secs
+    }
+    
 }
 
 fn main() {
 
-let song = TaylorSwift {
+//let song = TaylorSwift {
+    let blank_space = TaylorSwift {
     title: String::from("Blank Space"),
     release_year: 2014,
     duration_secs: 231,
     };
    // song.display_song_info(); // class 153
-    song.double_length(); // class 154
+   // song.double_length(); // class 154
+   let all_too_well = TaylorSwift {
+        title: String::from("All Too Well"),
+        release_year: 2012,
+        duration_secs: 327,
+    };
+
+    if blank_space.is_longer_than(&all_too_well) {
+        println!("{} is longer than {}", blank_space.title, all_too_well.title);
+    
+    } else {
+        println!("{} is shoter than or equal to {}", blank_space.title, all_too_well.title);
+    }
+
+
+    
 }
 
 /*
