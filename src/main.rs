@@ -10,6 +10,16 @@ impl TaylorSwift {
     // Mutable struct value (self parameter takes ownership, has permission to change)
     // Immutable reference to struct instance (no ownership)
     // Mutable reference to struct instance (no ownership, has permission to change)
+   
+    fn new(title: String, release_year: u32, duration_secs: u32) -> Self {  // Class 158
+        Self {
+            // Self is a type alias for the struct, in capital letters
+            title,
+            release_year,
+            duration_secs,
+        }
+    }
+
     fn display_song_info(&self) {
         println!("Title: {}", self.title);
         println!("Year since release: {}", self.years_since_release());
@@ -31,31 +41,36 @@ impl TaylorSwift {
 }
 
 fn main() {
+    //let song = TaylorSwift {
+    // Class 158
+    let blank_space = TaylorSwift::new(String::from("Blank Space"), 2014, 231);
 
-//let song = TaylorSwift {
-    let blank_space = TaylorSwift {
+    /* let blank_space = TaylorSwift {
     title: String::from("Blank Space"),
     release_year: 2014,
     duration_secs: 231,
-    };
-   // song.display_song_info(); // class 153
-   // song.double_length(); // class 154
-   let all_too_well = TaylorSwift {
+    };*/
+    // song.display_song_info(); // class 153
+    // song.double_length(); // class 154
+    let all_too_well = TaylorSwift {
         title: String::from("All Too Well"),
         release_year: 2012,
         duration_secs: 327,
     };
 
     if blank_space.is_longer_than(&all_too_well) {
-        println!("{} is longer than {}", blank_space.title, all_too_well.title);
-    
+        println!(
+            "{} is longer than {}",
+            blank_space.title, all_too_well.title
+        );
     } else {
-        println!("{} is shoter than or equal to {}", blank_space.title, all_too_well.title);
+        println!(
+            "{} is shoter than or equal to {}",
+            blank_space.title, all_too_well.title
+        );
     }
 
     blank_space.display_song_info(); // class 157
-
-    
 }
 
 /*
