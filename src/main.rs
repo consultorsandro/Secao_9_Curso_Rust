@@ -1,4 +1,85 @@
-#[derive(Debug)] // Convertendo a struct para um formato legível/imprimir
+#[derive(Debug)] // Convert the struct to a string
+struct Computer { //Class 160 The Build Pattern
+    cpu: String,
+    memory: u32,
+    hard_drive_capacity: u32,
+    }
+
+    impl Computer {
+        fn new(cpu: String, memory: u32, hard_drive_capacity: u32) -> Self {
+            Self {
+                cpu,
+                memory,
+                hard_drive_capacity,
+            }
+        }
+
+        fn upgrade_cpu(&mut self, new_cpu: String) -> &mut Self{
+            self.cpu = new_cpu;
+            self
+        }
+
+        fn upgrade_memory(&mut self, new_memory: u32) -> &mut Self {
+            self.memory = new_memory;
+            self
+        }
+        fn upgrade_hard_drive_capacity(&mut self, new_capacity: u32) -> &mut Self {
+            self.hard_drive_capacity = new_capacity;
+            self
+        }
+    }
+
+
+fn main() {
+
+    let mut computer = Computer::new(String::from("M3 Max"), 64, 8);
+    // Preciso consertar isso
+    computer
+        .upgrade_cpu(String::from("M4 Max"))
+        .upgrade_memory(128)
+        .upgrade_hard_drive_capacity(4);
+    /*
+    .upgrade_cpu(String::from("M4 Max"))
+    .upgrade_memory(128)
+    .upgrade_hard_drive_capacity(4);
+     */
+
+    println!("Stats {:#?}", computer)
+}
+/*
+    //let song = TaylorSwift {
+    // Class 158
+    let blank_space = TaylorSwift::new(String::from("Blank Space"), 2014, 231);
+
+    /* let blank_space = TaylorSwift {
+    title: String::from("Blank Space"),
+    release_year: 2014,
+    duration_secs: 231,
+    };*/
+    // song.display_song_info(); // class 153
+    // song.double_length(); // class 154
+    let all_too_well = TaylorSwift {
+        title: String::from("All Too Well"),
+        release_year: 2012,
+        duration_secs: 327,
+    };
+
+    if blank_space.is_longer_than(&all_too_well) {
+        println!(
+            "{} is longer than {}",
+            blank_space.title, all_too_well.title
+        );
+    } else {
+        println!(
+            "{} is shoter than or equal to {}",
+            blank_space.title, all_too_well.title
+        );
+    }
+
+    blank_space.display_song_info(); // class 157
+}
+*/
+/* // class 168 outside of main
 struct TaylorSwift {
     title: String,
     release_year: u32,
@@ -40,39 +121,7 @@ impl TaylorSwift {
     }
 }
 
-fn main() {
-    //let song = TaylorSwift {
-    // Class 158
-    let blank_space = TaylorSwift::new(String::from("Blank Space"), 2014, 231);
-
-    /* let blank_space = TaylorSwift {
-    title: String::from("Blank Space"),
-    release_year: 2014,
-    duration_secs: 231,
-    };*/
-    // song.display_song_info(); // class 153
-    // song.double_length(); // class 154
-    let all_too_well = TaylorSwift {
-        title: String::from("All Too Well"),
-        release_year: 2012,
-        duration_secs: 327,
-    };
-
-    if blank_space.is_longer_than(&all_too_well) {
-        println!(
-            "{} is longer than {}",
-            blank_space.title, all_too_well.title
-        );
-    } else {
-        println!(
-            "{} is shoter than or equal to {}",
-            blank_space.title, all_too_well.title
-        );
-    }
-
-    blank_space.display_song_info(); // class 157
-}
-
+*/
 /*
     //Class 152
     let mut mocha = Coffee {
