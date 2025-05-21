@@ -1,3 +1,58 @@
+use std::fmt::DebugSet;
+
+#[derive(Debug)]
+struct Flight {
+    origin: String,
+    destination: String,
+    price: f64,
+    passengers: u32,
+}
+impl Flight {
+    fn new(origin: String, destination: String, price: f64, passengers: u32) -> Self {
+        Self {
+            origin,
+            destination,
+            price,
+            passengers,
+        }
+    }
+    fn change_destination(&mut self, new_destination: String) {
+        self.destination = new_destination
+    }
+    
+    fn increase_price(&mut self) {
+        self.price *= 1.20;
+    }
+    fn itinerary(&self) {
+        println!("Flight from {} to {}", self.origin, self.destination);
+    }
+}
+
+fn main() {
+//Class 164 Project
+let mut my_flight = Flight::new(
+    String::from("New York"),
+    String::from("Los Angeles"),
+    299.99,150,
+);
+println!("{:?}", my_flight);
+
+my_flight.change_destination(String::from("San Francisco"));
+my_flight.increase_price();
+my_flight.itinerary();
+println!("{:?}", my_flight);
+
+let another_flight = Flight{
+
+    origin: String::from("Paris"),
+    destination: String::from("Rome"),
+    ..my_flight
+};
+println!("{:#?}", another_flight);
+
+}
+ 
+/* outside of main
 //Hours, minutes
 struct ShorDuration(u32, u32);
 //Years, months
@@ -8,15 +63,13 @@ fn go_to_work(lenght: ShorDuration) {
 }
 
 fn accept_tuple(lenght: (u32, u32)) {}
-
-fn main() {
     //Class 161
     let worh_shift = ShorDuration(8, 0);
     println!("{} hours {} minutes", worh_shift.0, worh_shift.1);
 
     let era = LongDuration(5, 3);
     println!("{} years {} months", era.0, era.1);
-}
+*/
 /*
     let mut computer = Computer::new(String::from("M3 Max"), 64, 8);
     // Preciso consertar isso
