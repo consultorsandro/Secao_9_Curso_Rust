@@ -1,4 +1,40 @@
-#[derive(Debug)] // Convert the struct to a string
+//Hours, minutes
+struct ShorDuration(u32, u32);
+//Years, months
+struct LongDuration(u32, u32);
+
+fn go_to_work(lenght: ShorDuration) {
+    println!("Passing time {} hours {} minutes", lenght.0, lenght.1);
+}
+
+fn accept_tuple(lenght: (u32, u32)) {}
+
+fn main() {
+    //Class 161
+    let worh_shift = ShorDuration(8, 0);
+    println!("{} hours {} minutes", worh_shift.0, worh_shift.1);
+
+    let era = LongDuration(5, 3);
+    println!("{} years {} months", era.0, era.1);
+}
+/*
+    let mut computer = Computer::new(String::from("M3 Max"), 64, 8);
+    // Preciso consertar isso
+    computer
+        .upgrade_cpu(String::from("M4 Max"))
+        .upgrade_memory(128)
+        .upgrade_hard_drive_capacity(4);
+    /*
+    .upgrade_cpu(String::from("M4 Max"))
+    .upgrade_memory(128)
+    .upgrade_hard_drive_capacity(4);
+     */
+
+    println!("Stats {:#?}", computer)
+}
+ Class 160 outside of main
+    //Class 160
+    #[derive(Debug)]
 struct Computer { //Class 160 The Build Pattern
     cpu: String,
     memory: u32,
@@ -28,24 +64,7 @@ struct Computer { //Class 160 The Build Pattern
             self
         }
     }
-
-
-fn main() {
-
-    let mut computer = Computer::new(String::from("M3 Max"), 64, 8);
-    // Preciso consertar isso
-    computer
-        .upgrade_cpu(String::from("M4 Max"))
-        .upgrade_memory(128)
-        .upgrade_hard_drive_capacity(4);
-    /*
-    .upgrade_cpu(String::from("M4 Max"))
-    .upgrade_memory(128)
-    .upgrade_hard_drive_capacity(4);
-     */
-
-    println!("Stats {:#?}", computer)
-}
+*/
 /*
     //let song = TaylorSwift {
     // Class 158
@@ -91,7 +110,7 @@ impl TaylorSwift {
     // Mutable struct value (self parameter takes ownership, has permission to change)
     // Immutable reference to struct instance (no ownership)
     // Mutable reference to struct instance (no ownership, has permission to change)
-   
+
     fn new(title: String, release_year: u32, duration_secs: u32) -> Self {  // Class 158
         Self {
             // Self is a type alias for the struct, in capital letters
